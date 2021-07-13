@@ -1,0 +1,31 @@
+<main class="row">
+   <div class="col-3">
+   </div>
+   <div class="col-6">
+      <div class="card">
+         <div class="card-body text-center">
+            <h3 class="mb-5">Rastreamento</h3>
+            <div [hidden]="!(trackingItem.length == 0)" class="alert alert-danger mb-4" role="alert">
+               Código não encontrado!
+             </div>
+            <ng-container *ngFor="let item of trackingItem">
+               <div class="row">
+                  <div class="col-4">
+                     <span>{{item.date | localDateTime}}</span><br>
+                     <span>{{item.localization}}</span>
+                  </div>
+                  <div class="col-8 ">
+                     <span><b>{{item.message.message}}</b></span><br>
+                  </div>
+               </div>
+               <hr>
+            </ng-container>
+            <form action="/home" class="text-center" method="GET">
+               <button type="submit" class="btn btn-primary mt-3">Novo Rastreio</button>
+            </form>
+         </div>
+      </div>
+   </div>
+   <div class="col-3">
+   </div>
+</main>
